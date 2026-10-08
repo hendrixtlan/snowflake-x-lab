@@ -1,0 +1,14 @@
+{
+  "executed_at_utc": "2026-10-08T03:19:11.661485+00:00",
+  "experiment": "ranking",
+  "result": {
+    "model": "popularity_without_seen_items",
+    "holdout": "leave_last_positive_per_user",
+    "caution": "Global popularity aggregates other users beyond each target user's holdout timestamp; use true as-of snapshots for strict production temporal evaluation.",
+    "k": 10,
+    "users": 206,
+    "recall_at_k": 0.10194,
+    "ndcg_at_k": 0.04788,
+    "unique_items_recommended": 14
+  }
+}

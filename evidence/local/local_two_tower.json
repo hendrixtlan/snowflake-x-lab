@@ -1,0 +1,24 @@
+{
+  "executed_at_utc": "2026-10-08T03:19:13.867563+00:00",
+  "experiment": "two-tower",
+  "result": {
+    "model": "implicit_bpr_two_tower",
+    "device": "cpu",
+    "parameters": 11840,
+    "train_rows": 834,
+    "epochs": 4,
+    "loss_by_epoch": [
+      0.69382,
+      0.67752,
+      0.66104,
+      0.64242
+    ],
+    "k": 10,
+    "holdout": "leave_last_positive_per_user",
+    "known_limitation": "Sampled negatives may be unlabeled positives; also see popularity benchmark's global as-of leakage caveat.",
+    "users": 206,
+    "recall_at_k": 0.09709,
+    "ndcg_at_k": 0.04631,
+    "unique_items_recommended": 120
+  }
+}

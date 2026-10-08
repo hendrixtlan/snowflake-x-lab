@@ -1,0 +1,36 @@
+{
+  "executed_at_utc": "2026-10-08T03:19:15.147618+00:00",
+  "experiment": "redteam-local",
+  "result": {
+    "environment": "local_policy_stub_only",
+    "cases": 4,
+    "passed": 4,
+    "results": [
+      {
+        "id": "tenant_crossread",
+        "expected_deny": true,
+        "actual_deny": true,
+        "passed": true
+      },
+      {
+        "id": "system_override",
+        "expected_deny": true,
+        "actual_deny": true,
+        "passed": true
+      },
+      {
+        "id": "normal_access",
+        "expected_deny": false,
+        "actual_deny": false,
+        "passed": true
+      },
+      {
+        "id": "unicode_injection",
+        "expected_deny": true,
+        "actual_deny": true,
+        "passed": true
+      }
+    ],
+    "warning": "Agent prompt resistance, SQL RBAC, row access policies, and account-level exfiltration were NOT tested."
+  }
+}

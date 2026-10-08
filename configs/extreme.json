@@ -1,0 +1,15 @@
+{
+  "experiment_suite": "snowflake-x-lab-v2",
+  "global": {"dev_only": true, "max_local_events": 1000000, "cloud_paid_runs_require_ack": true},
+  "targets_not_results": {
+    "stream_event_to_query_p95_ms": 10000,
+    "online_feature_get_p95_ms": 75,
+    "online_feature_freshness_p95_ms": 2000,
+    "model_inference_p95_ms": 150,
+    "ranking_recall_at_10": 0.10,
+    "cross_tenant_leaks": 0,
+    "duplicate_commits": 0
+  },
+  "benchmarks": {"warmup_requests": 50, "sample_requests": 1000, "concurrency": [1, 10, 50, 100],
+                 "faults": ["duplicate", "reorder", "late", "retry", "pool_restart", "model_rollback"]}
+}

@@ -1,0 +1,11 @@
+{
+  "executed_at_utc": "2026-10-08T03:19:10.835635+00:00",
+  "experiment": "bandit-sim",
+  "result": {
+    "environment": "synthetic_contextual_bandit",
+    "rounds": 3000,
+    "empirical_reward": 0.6363,
+    "expected_oracle_reward": 0.6658,
+    "pseudo_regret_upper_reference": 0.0294
+  }
+}

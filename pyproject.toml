@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snowflake-ai-ds-lab"
+version = "0.2.0"
+description = "Snowflake X-LAB: extreme streaming, online features, PyTorch, agents and adversarial benchmarks"
+requires-python = ">=3.11"
+dependencies = ["pandas>=2.2,<3", "numpy>=1.26,<3", "scikit-learn>=1.5,<2", "snowflake-connector-python>=3.12,<5", "python-dotenv>=1,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.8,<1", "build>=1,<2"]
+snowflake-ml = ["snowflake-ml-python>=2.0,<3", "snowflake-snowpark-python>=1.20"]
+gpu = ["torch>=2.2,<3"]
+cloud = ["requests>=2.32,<3"]
+
+[project.scripts]
+music-lab = "music_lab.cli:main"
+xlab = "music_lab.xlab_cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

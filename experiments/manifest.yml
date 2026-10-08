@@ -1,0 +1,56 @@
+suite: snowflake-x-lab-v2
+updated: '2026-10-07'
+experiment_contract:
+  require_environment_tag: true
+  require_artifact_json: true
+  publish_latency_percentiles: [50, 95, 99]
+  require_repeatable_seed: true
+experiments:
+  - id: streaming_replay_sim
+    status: implemented_local
+    command: xlab stream-sim --events 100000
+    measures: [duplicate_detection, out_of_order_arrival, simulation_throughput]
+  - id: real_snowpipe_stress
+    status: cloud_not_executed
+    needs: [snowpipe_streaming_sdk, high_performance_pipe, workload_generator]
+    measures: [ingest_to_query_p95, bytes_per_second, commit_offset_recovery, credits_per_million]
+  - id: online_feature_latency
+    status: cloud_not_executed
+    needs: [online_feature_store_preview, authenticated_rest_client, latency_load_test]
+    measures: [api_latency_p95, end_to_end_freshness_p95, online_offline_consistency]
+  - id: ranking_popularity
+    status: implemented_local
+    command: xlab ranking
+    measures: [recall_at_10, ndcg_at_10]
+  - id: ranking_two_tower
+    status: implemented_local
+    command: xlab two-tower --epochs 4 --device auto
+    measures: [recall_at_10, ndcg_at_10, bpr_loss]
+  - id: GPU_ML_Job
+    status: local_workload_cloud_submission_not_executed
+    needs: [gpu_compute_pool, snowflake_ml_jobs_permissions]
+    measures: [training_wallclock, GPU_utilization, training_cost]
+  - id: contextual_bandit
+    status: implemented_local
+    command: xlab bandit-sim
+    measures: [observed_reward, ips, snips, effective_sample_size]
+  - id: cortex_multimodal
+    status: cloud_sql_not_executed
+    needs: [document_images_or_audio, cortex_models_enabled, golden_labels]
+    measures: [retrieval_recall, factual_groundedness, multimodal_hallucination]
+  - id: cortex_agent_code
+    status: cloud_sql_not_executed
+    needs: [semantic_view, search_service, agent_create_privileges]
+    measures: [task_success, grounding, tool_error_rate, token_cost]
+  - id: cortex_ai_eval
+    status: cloud_sql_not_executed
+    needs: [versioned_labeled_dataset, cortex_ai_functions]
+    measures: [exact_match, cost, token_usage]
+  - id: local_authz_redteam
+    status: implemented_local_only
+    command: xlab redteam-local
+    measures: [policy_test_pass_count]
+  - id: live_cross_tenant_redteam
+    status: cloud_not_executed
+    needs: [account_scoped_roles, real_agent, canary_tenant_data]
+    measures: [tenant_leaks, unauthorized_tool_calls]

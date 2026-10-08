@@ -1,0 +1,16 @@
+{
+  "environment": "synthetic_data",
+  "n_events": 30000,
+  "users_per_tenant": 500,
+  "items_per_tenant": 300,
+  "tenants": 3,
+  "seed": 42,
+  "distribution_shift": "latin ticket purchase rate increased after 70%",
+  "event_types": {
+    "listen": 15950,
+    "ticket_view": 10285,
+    "ticket_purchase": 1355,
+    "skip": 2410
+  },
+  "sha256_stream_events": "f45b793712a541ae88f78bd1b081ee7d0ba36a5fa459bcfda7eb10403bdbb081"
+}

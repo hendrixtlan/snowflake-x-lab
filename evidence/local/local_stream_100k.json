@@ -1,0 +1,21 @@
+{
+  "executed_at_utc": "2026-10-08T03:19:10.057621+00:00",
+  "experiment": "stream-sim",
+  "result": {
+    "environment": "local_simulation_not_snowflake",
+    "unique_input_events": 100000,
+    "delivered_events": 103063,
+    "committed_once": 100000,
+    "deduplicated": 3063,
+    "late_arrivals": 61588,
+    "injection_delay_ms": {
+      "count": 100000,
+      "p50_ms": 19.0,
+      "p95_ms": 2701.0,
+      "p99_ms": 2942.0,
+      "max_ms": 3000.0
+    },
+    "simulation_events_per_s": 1273538.0,
+    "warning": "Injection delay and local CPU throughput are NOT Snowpipe ingest-to-query or serving metrics."
+  }
+}
